@@ -5,12 +5,12 @@ const userSchema = new mongoose.Schema({
     username:{
         type: String,
         required:true,
-        unique:trusted,
+        unique:true,
     },
     email:{
         type: String,
         required:true,
-        unique:trusted,
+        unique:true,
     },
     password:{
         type: String,
@@ -19,5 +19,5 @@ const userSchema = new mongoose.Schema({
 },{timestamps:true}
 );
 
-const User = moongoose.model('User',userSchema);
+const User = mongoose.model('User',userSchema);
 export default User;
