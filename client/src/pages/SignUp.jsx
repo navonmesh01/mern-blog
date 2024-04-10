@@ -70,7 +70,7 @@ export default function SignUp() {
                   <Spinner size='sm'/>
                   <span className='pl-3'>loading...</span>
                   </>
-                ) : ('Sign UP'
+                ) : ('SIGN UP'
               )}
             </Button>
           </form>
