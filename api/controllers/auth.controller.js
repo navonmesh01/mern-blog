@@ -48,9 +48,12 @@ export const signin = async (req,res,next) => {
 
         const token = jwt.sign({id:validUser._id}, process.env.JWT_SECRET); // after process.env.JWT_SECRET, ;we can add expiresIn:'id' to expire the session fr now our session will expire when the user closes the browser
 
+        // const expiryDate = new Date();
+        // expiryDate.setDate(expiryDate.getDate() + 30);
+
         const {password:pass, ...rest} = validUser._doc; // soo that password is not sent
         res.status(200).cookie('access_token',token, {
-            httpOnly: true}).json(rest); // inside json instead of validUser, we pass rest
+            httpOnly: true}).json(rest); // inside json instead of validUser, we pass rest also if session is to be set httpOnly: true,expires: expiryDate
     } catch (error) {
         next(error);
     }
