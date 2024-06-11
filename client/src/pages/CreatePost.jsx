@@ -83,9 +83,8 @@ export default function CreatePost() {
         <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
             <div className='flex flex-col gap-4 sm:flex-row justify-between'>
                 <TextInput type='text' placeholder='Title' required id='title' className='flex-1' onChange={(e)=> setFormData({...formData, title:e.target.value})}/>
-                <Select 
-                 onChange={(e)=> 
-                    setFormData({...formData,category:e.target.category})
+                <Select onChange={(e)=> 
+                    setFormData({...formData,category:e.target.value})
                  }
                 >
                     <option value="uncategorized">Select a category</option>
@@ -109,7 +108,7 @@ export default function CreatePost() {
                 <img src={formData.image} alt='upload' className='w-full h-72 object-cover' />
             )}
             <ReactQuill theme="snow" placeholder='Write something...' className='h-72 mb-12' required onChange={(value)=>{
-                setFormData({...formData,content:value})
+                setFormData({...formData,content:value});
             }}/>
             <Button type='submit' gradientDuoTone='purpleToPink'>PUBLISH</Button>
             {publishError && <Alert className='mt-5' color='failure'>{publishError}</Alert>}
