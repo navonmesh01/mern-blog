@@ -90,7 +90,7 @@ export const updatepost = async (req, res, next) => {
         return next(errorHandler(403, 'You are not allowed to update this post'));
     }
     const { postId } = req.params;
-    console.log('postId:', postId);
+    // console.log('postId:', postId);
 
     if (!mongoose.Types.ObjectId.isValid(postId)) {
         return next(errorHandler(400, 'Invalid post ID format'));
