@@ -22,7 +22,7 @@ export default function Search() {
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const searchTermFromUrl = urlParams.get("searchTerm");
-    const sortFromUrl = urlParams.get("sort");
+    const sortFromUrl = urlParams.get("order");
     const categoryFromUrl = urlParams.get("category");
     if (searchTermFromUrl || sortFromUrl || categoryFromUrl) {
       setSidebarData({
@@ -73,7 +73,7 @@ export default function Search() {
     e.preventDefault();
     const urlParams = new URLSearchParams(location.search);
     urlParams.set("searchTerm", sidebarData.searchTerm);
-    urlParams.set("sort", sidebarData.sort);
+    urlParams.set("order", sidebarData.sort);
     urlParams.set("category", sidebarData.category);
     const searchQuery = urlParams.toString();
     navigate(`/search?${searchQuery}`);
